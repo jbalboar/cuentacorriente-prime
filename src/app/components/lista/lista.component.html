@@ -1,0 +1,95 @@
+
+
+  <div class="card">
+              <!-- <p-toolbar styleClass="p-mb-4">
+                  <ng-template pTemplate="left">
+                  </ng-template>
+                  <ng-template pTemplate="right">
+                      <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+                  </ng-template>
+            </p-toolbar> -->
+      <div class="card text-dark bg-transparente mb-3" style="max-width: 100%;">
+        <div class="card-header" style="background-color: #4683df;">
+          <div class="d-flex bd-highlight">
+            <div class="p-2 flex-grow-1 bd-highlight" ></div>
+            <div class="p-2 bd-highlight">
+              <button type="button" class="btn btn-warning">Exportar PDF</button>
+            </div>
+            <div class="p-2 bd-highlight">
+              <button type="button" class="btn btn-success">Exportar Excel</button>
+              </div>
+            </div>
+        </div>
+
+          <p-table #dt1 [value]="lstDpmn"
+          dataKey="id"
+          [rows]="10"
+          [paginator]="true"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[10,25,50]"
+          [loading]="loading"
+          styleClass="p-datatable-lstDpmn"
+          [paginator]="true"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [globalFilterFields]="['id','lstDpmn.estado.desDataCat','lstDpmn.name','status']" >
+
+          <ng-template pTemplate="caption">
+            <div class="p-d-flex">
+              <span class="p-input-icon-left p-ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text"
+                        (input)="dt1.filterGlobal($any($event.target).value, 'contains')" style="width:auto" placeholder="Search keyword" />
+                    </span>
+            </div>
+          </ng-template>
+
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th>Id</th>
+                      <th>Nro de DPMN</th>
+                      <th>Estado</th>
+                      <th>País Placa</th>
+                      <th>Placa Carreta</th>
+                      <th>Flujo Vehiculo</th>
+                      <th>Fecha Registro</th>
+                      <th>1er RUC Remitente</th>
+                      <th>#Series</th>
+                      <th>#Control</th>
+                      <th>Fec. Ult de Control</th>
+                      <th>Canal Ult.</th>
+                      <th>Funcionario Aduanero</th>
+                  </tr>
+                  <!--<tr>
+                    <th><p-columnFilter type="text" field="id"></p-columnFilter></th>
+                    <th><p-columnFilter type="text" field="country.name"></p-columnFilter></th>
+                    </tr>-->
+              </ng-template>
+
+              <ng-template pTemplate="body" let-lstDpmn let-rowIndex="rowIndex">
+                  <tr>
+                      <td>{{rowIndex + 1}}</td>
+                      <!--<td><span><a [routerLink]='' [queryParams]='{key1:documentos[1200]}' style="color: blue;">{{documentos.numeroDeDocumentoDescarga}}</a></span></td>-->
+                      <td><a [routerLink]="['/detalles']">{{lstDpmn.numeroDeDocumentoDescarga}}</a></td>
+                      <td>{{lstDpmn.estado.desDataCat}}</td>
+                      <td>{{lstDpmn.paisPlaca.codDatacat}}-{{lstDpmn.paisPlaca.desDataCat}}</td>
+                      <td>{{lstDpmn.placaCarreta}}</td>
+                      <td>{{lstDpmn.flujoVehiculo.desDataCat}}</td>
+                      <td>{{lstDpmn.fechaDeRegistro}}</td>
+                      <td>{{lstDpmn.rucDelRemitente}}</td>
+                      <td>{{lstDpmn.cantidadDeSeries}}</td>
+                      <td>{{lstDpmn.cantidadDeControles}}</td>
+                      <td>{{lstDpmn.fechaDelUltimoControl}}</td>
+                      <td>{{lstDpmn.canalDelUltimoControl.codDatacat}}</td>
+                      <td>{{lstDpmn.funcionarioAduanero}}</td>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="4" class="text-center" text-align="center">No hay Registros</td>
+                </tr>
+              </ng-template>
+          </p-table>
+          <router-outlet></router-outlet>
+      </div>
+
+</div>

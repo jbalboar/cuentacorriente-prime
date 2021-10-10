@@ -1,0 +1,14 @@
+[
+    {
+        "codigo": "T",
+        "descripcion": "TODOS"
+    },
+    {
+        "codigo": "F",
+        "descripcion": "FÍSICO"
+    },
+    {
+        "codigo": "D",
+        "descripcion": "DOCUMENTARIO"
+    }
+]

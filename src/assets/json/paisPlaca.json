@@ -1,0 +1,26 @@
+[
+    {
+        "codigo": "PE",
+        "descripcion": "PE-PERÚ"
+    },
+    {
+        "codigo": "CL",
+        "descripcion": "CL-CHILE"
+    },
+    {
+        "codigo": "BO",
+        "descripcion": "BO-BOLIVIA"
+    },
+    {
+        "codigo": "BR",
+        "descripcion": "BR-BRASIL"
+    },
+    {
+        "codigo": "CO",
+        "descripcion": "CO-COLOMBIA"
+    },
+    {
+        "codigo": "EC",
+        "descripcion": "EC-ECUADOR"
+    }
+]
